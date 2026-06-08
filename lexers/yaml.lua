@@ -17,7 +17,7 @@ lex:add_rule('doc_bounds', lex:tag(lexer.OPERATOR, lexer.starts_line(P('---') + 
 
 -- Keys.
 local word = (lexer.alnum + '-')^1
-lex:add_rule('key', -P('- ') * lex:tag(lexer.STRING, word * (S(' \t_')^1 * word^-1)^0) *
+lex:add_rule('key', -P('- ') * lex:tag(lexer.IDENTIFIER, word * (S(' \t_')^1 * word^-1)^0) *
 	#P(':' * lexer.space))
 
 -- Collections.
